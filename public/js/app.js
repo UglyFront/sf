@@ -1,4 +1,4 @@
- const ADRESS = "softkids.ru"; // SOFT KIDS
+ const ADRESS = "softkids.ru"; // SOF80T KIDS
  //const ADRESS = "localhost"; 
 
 let slider = document.getElementById("courses__slider");
