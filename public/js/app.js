@@ -1,5 +1,5 @@
-// const ADRESS = "62.113.105.198"; // SOFT KIDS
- const ADRESS = "localhost"; 
+ const ADRESS = "62.113.105.198"; // SOFT KIDS
+ //const ADRESS = "localhost"; 
 
 let slider = document.getElementById("courses__slider");
 let sliderHandler = document.getElementById("slider-handler");
