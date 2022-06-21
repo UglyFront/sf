@@ -392,7 +392,8 @@ let btn = document.querySelector(".banner__form__send-btn")
 let btn2 = document.querySelector("#secondBtn")
 
 
-function mail() {
+function mail(e) {
+    e.preventDefault()
 
         let body = {
             name: nameform.value,
@@ -402,12 +403,14 @@ function mail() {
         }
 
 
-        if ((body.name && body.phone && body.email && body.city) != "") {
+    
+        if ((body.name && body.phone && body.email && body.city && body.email) != "" && body.email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
             fetch(`https://${ADRESS}/mail?name=${body.name}&phone=${body.phone}&email=${body.email}&city=${body.city}`)
             .then(alert("Мы свяжемся с Вами в ближайшее время!"))
+            .then(yaCounter89267968.reachGoal('form'))
         }
         else {
-            alert("Заполните все поля...")
+            alert("Заполните все поля корректно")
         }
 
 
@@ -415,7 +418,8 @@ function mail() {
 
 
 
-function mail2() {
+function mail2(e) {
+    e.preventDefault()
 
     let body = {
         name: nameform2.value,
@@ -425,12 +429,13 @@ function mail2() {
     }
 
 
-    if ((body.name && body.phone && body.email && body.city) != "") {
+    if ((body.name && body.phone && body.email && body.city && body.email) != "" && body.email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
         fetch(`https://${ADRESS}/mail?name=${body.name}&phone=${body.phone}&email=${body.email}&city=${body.city}`)
         .then(alert("Мы свяжемся с Вами в ближайшее время!"))
+        .then(yaCounter89267968.reachGoal('form'))
     }
     else {
-        alert("Заполните все поля...")
+        alert("Заполните все поля корректно")
     }
 
 }
@@ -455,6 +460,7 @@ cbBtn.onclick = () => {
     if ((cbName.value && cbPhone.value && cbQuestion.value) != "") {
         fetch(`https://${ADRESS}/cb?n=${cbName.value}&p=${cbPhone.value}&q=${cbQuestion.value}`)
         .then(alert("Мы свяжемся с Вами в ближайшее время!"))
+        .then(yaCounter89267968.reachGoal('form'))
     }
     else {
         alert("Заполните все поля...")
@@ -517,7 +523,12 @@ callBackBtn.addEventListener("click", callBackModalHandler);
 presentation__modal.addEventListener("click", callBackModalHandler);
 
 
+const messnagers = document.querySelectorAll(".main-nav__messagers")
 
+
+messnagers.forEach(el => el.onclick = function() {
+    yaCounter89267968.reachGoal('mesenger')
+})
 
 
 
